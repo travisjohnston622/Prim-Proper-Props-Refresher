@@ -1,0 +1,48 @@
+import React, { Component } from 'react';
+
+class GuestForm extends Component {
+    render() {
+        return (
+            <div>
+                <h2>Add a new guest</h2>
+                <form onSubmit={this.props.handleSubmit}>
+                    <label>Name</label>
+                    <input
+                        type="text"
+                        placeholder="Name"
+                        value={this.props.newGuest.name}
+                        onChange={this.props.handleChangeFor('name')}
+                    />
+                    <div>
+                        Would this guest like a kid's meal?
+                    <div onChange={this.props.handleChangeFor('kidsMeal')}>
+                            <div>
+                                <label>
+                                    <input type="radio"
+                                        value="yes"
+                                        name="kidsMeal"
+                                    />
+                                    Yes, this guest would like a kid's kidsMeal
+                            </label>
+                            </div>
+                            <div>
+                                <lable>
+                                    <input
+                                        type="radio"
+                                        value="no"
+                                        defaultChecked
+                                        name="kidsMeal"
+                                    />
+                                    No, this guest would not like a kid's meal
+                            </lable>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit">Add Guest</button>
+                </form>
+            </div>
+        );
+    }
+};
+
+export default GuestForm;
